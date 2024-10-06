@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Ong {
+  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
+  email                 String      @unique
+  senha                 String
+  cnpj                  String      @unique
+  nome_fantasia         String?
+  razao_social          String
+  logradouro            String
+  numero                String
+  complemento           String?
+  bairro                String
+  cidade                String
+  estado                String
+  cep                   String
+  descricao             String
+  whatsapp              String
+  horario_funcionamento String
+  telefone              String?
+  chave_pix             String?
+  quantidade_adocoes    Int?         @default(0)
+  documentos_necessarios String
+  procedimento          String
+  animais               Animal[]
+  adocoes               Adocao[]
+}
+
+model Animal {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  raca            String
+  especie         String
+  peso            Float
+  sexo            String
+  porte           String
+  data_nascimento DateTime?
+  idade_anos      Int?
+  idade_meses     Int?
+  vacinas         String?
+  adotado         Boolean       @default(false)
+  comportamento   String
+  descricao       String
+  ong_id          String        @db.ObjectId
+  ong             Ong           @relation(fields: [ong_id], references: [id])
+  adocao          Adocao[]
+}
+
+model Adocao {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome_adotante         String
+  email_adotante        String
+  telefone_adotante     String
+  cpf_adotante          String
+  logradouro            String
+  numero                String
+  complemento           String?
+  bairro                String
+  cidade                String
+  estado                String
+  cep                   String
+  data_adocao           DateTime
+  ong_id                String    @db.ObjectId
+  ong                   Ong       @relation(fields: [ong_id], references: [id])
+  animal_id             String    @db.ObjectId
+  animal                Animal    @relation(fields: [animal_id], references: [id])
+}
