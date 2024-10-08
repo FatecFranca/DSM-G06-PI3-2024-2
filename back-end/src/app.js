@@ -15,4 +15,11 @@ app.use(cookieParser())
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
+/***************** ROTAS *************************** */
+import ongsRouter from './routes/ongs.js'
+app.use('/ongs', ongsRouter)
+
+import especiesRouter from './routes/especies.js'
+app.use('/especies', especiesRouter)
+
 export default app

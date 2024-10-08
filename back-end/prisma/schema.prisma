@@ -14,36 +14,36 @@ datasource db {
 }
 
 model Ong {
-  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
-  email                 String      @unique
-  senha                 String
-  cnpj                  String      @unique
-  nome_fantasia         String?
-  razao_social          String
-  logradouro            String
-  numero                String
-  complemento           String?
-  bairro                String
-  cidade                String
-  estado                String
-  cep                   String
-  descricao             String
-  whatsapp              String
-  horario_funcionamento String
-  telefone              String?
-  chave_pix             String?
-  quantidade_adocoes    Int?         @default(0)
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  email                  String   @unique
+  senha                  String
+  cnpj                   String   @unique
+  nome_fantasia          String?
+  razao_social           String
+  logradouro             String
+  numero                 String
+  complemento            String?
+  bairro                 String
+  cidade                 String
+  estado                 String
+  cep                    String
+  descricao              String
+  whatsapp               String
+  horario_funcionamento  String
+  telefone               String?
+  chave_pix              String?
+  quantidade_adocoes     Int?     @default(0)
   documentos_necessarios String
-  procedimento          String
-  animais               Animal[]
-  adocoes               Adocao[]
+  procedimento           String
+  animais                Animal[]
+  adocoes                Adocao[]
 }
 
 model Animal {
-  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
   nome            String
-  raca            String
-  especie         String
+  raca_id         String    @db.ObjectId
+  raca            Raca      @relation(fields: [ong_id], references: [id])
   peso            Float
   sexo            String
   porte           String
@@ -51,30 +51,44 @@ model Animal {
   idade_anos      Int?
   idade_meses     Int?
   vacinas         String?
-  adotado         Boolean       @default(false)
+  adotado         Boolean   @default(false)
   comportamento   String
   descricao       String
-  ong_id          String        @db.ObjectId
-  ong             Ong           @relation(fields: [ong_id], references: [id])
+  ong_id          String    @db.ObjectId
+  ong             Ong       @relation(fields: [ong_id], references: [id])
   adocao          Adocao[]
 }
 
 model Adocao {
-  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
-  nome_adotante         String
-  email_adotante        String
-  telefone_adotante     String
-  cpf_adotante          String
-  logradouro            String
-  numero                String
-  complemento           String?
-  bairro                String
-  cidade                String
-  estado                String
-  cep                   String
-  data_adocao           DateTime
-  ong_id                String    @db.ObjectId
-  ong                   Ong       @relation(fields: [ong_id], references: [id])
-  animal_id             String    @db.ObjectId
-  animal                Animal    @relation(fields: [animal_id], references: [id])
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome_adotante     String
+  email_adotante    String
+  telefone_adotante String
+  cpf_adotante      String
+  logradouro        String
+  numero            String
+  complemento       String?
+  bairro            String
+  cidade            String
+  estado            String
+  cep               String
+  data_adocao       DateTime
+  ong_id            String   @db.ObjectId
+  ong               Ong      @relation(fields: [ong_id], references: [id])
+  animal_id         String   @db.ObjectId
+  animal            Animal   @relation(fields: [animal_id], references: [id])
+}
+
+model Especie {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  raca            Raca[]
+}
+
+model Raca {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  especie_id      String        @db.ObjectId
+  especie         Especie       @relation(fields: [especie_id], references: [id])
+  animal Animal[]
 }
