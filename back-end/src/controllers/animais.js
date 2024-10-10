@@ -46,7 +46,8 @@ controller.update = async function (req,res) {
         const result = await prisma.animal.update({
             where: {
                 id: req.params.id
-            }
+            },
+            data: req.body
         })
         if (result) res.send(result)
             else res.status(404).end()
@@ -56,7 +57,7 @@ controller.update = async function (req,res) {
     }
 }
 
-controller.delete = async function (params) {
+controller.delete = async function (req,res) {
     try {
         await prisma.animal.delete ({
             where: {
