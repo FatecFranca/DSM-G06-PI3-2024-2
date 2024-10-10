@@ -22,4 +22,9 @@ app.use('/ongs', ongsRouter)
 import especiesRouter from './routes/especies.js'
 app.use('/especies', especiesRouter)
 
+import racasRouter from './routes/racas.js'
+app.use('/racas', racasRouter)
+
+import animaisRouter from './routes/animais.js'
+app.use('/animais', animaisRouter)
 export default app

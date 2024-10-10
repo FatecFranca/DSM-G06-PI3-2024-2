@@ -29,7 +29,7 @@ controller.retrieveAll = async function (req, res) {
     try {
         // Manda buscar os dados no servidor
         const result = await prisma.especie.findMany({
-            orderBy: [{nome: 'asc'}]
+            orderBy: [{ nome: 'asc' }]
         })
 
         // Retorna os dados obtidos ao cliente com o status
@@ -44,7 +44,73 @@ controller.retrieveAll = async function (req, res) {
         // HTTP 500: Internal Server Error
         res.status(500).send(error)
     }
- 
+}
+
+controller.retrieveOne = async function (req, res) {
+    try {
+        const result = await prisma.especie.findUnique({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        if (result) res.send(result)
+
+        else res.status(404).end()
+    }
+    catch (error) {
+        console.error(error)
+
+        res.status(500).send(error)
+    }
+}
+
+controller.update = async function (req, res) {
+    try {
+        const result = await prisma.especie.update({
+            where: {id: req.params.id},
+            data: req.body
+        })
+
+        if (result) res.status(204).send(result)
+        else res.status(404).end()
+    }
+    catch (error) {
+        // Deu errado: exibe o erro no console do back-end
+        console.error(error)
+
+        // Envia o erro ao front-end, com status 500
+        // HTTP 500: Internal Server Error
+        res.status(500).send(error)
+    }
+}
+
+controller.delete = async function (req, res) {
+    try {
+        // Busca o documento a ser excluído pelo id passado
+        // como parâmetro e efetua a exclusão caso encontrado
+        await prisma.especie.delete({
+            where: {id: req.params.id}
+        })
+
+
+        // Encontrou e exclui ~> HTTP 204: No Content
+         res.status(204).end()
+    }
+    catch (error) {
+        if(error?.error === 'P2025') {
+            // Não encontrou e não excluiu ~> HTTP 204: Not Found
+            res.status(404).end()
+        }
+        else {
+                   // Deu errado: exibe o erro no console do back-end
+           console.error(error)
+
+           // Envia o erro ao front-end, com status 500
+           // HTTP 500: Internal Server Error
+           res.status(500).send(error)
+        }
+    }
 }
 
 export default controller
