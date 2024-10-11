@@ -29,6 +29,6 @@ import animaisRouter from './routes/animais.js'
 app.use('/animais', animaisRouter)
 
 import adocoesRouter from './routes/adocoes.js'
-app.use('/adocooes', adocoesRouter)
+app.use('/adocoes', adocoesRouter)
 
 export default app

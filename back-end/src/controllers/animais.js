@@ -1,4 +1,5 @@
 import prisma from '../database/client.js'
+import { includeRelations } from '../lib/utils.js'
 
 const controller = {}
 
@@ -15,9 +16,11 @@ controller.create = async function (req,res) {
 }
 
 controller.retrieveAll = async function (req,res) {
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.animal.findMany({
-            orderBy: {nome: 'asc'}
+            orderBy: [{nome: 'asc'}],
+            include
         })
         res.send(result) // HTTP 200 ~> IMPLÍCITO
     } catch (error) {
@@ -27,11 +30,14 @@ controller.retrieveAll = async function (req,res) {
 }
 
 controller.retrieveOne = async function (req, res) {
+
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.animal.findUnique ({
             where: {
                 id: req.params.id
-            }
+            },
+            include
         })
         if(result) res.send(result)
             else res.status(404).end()
