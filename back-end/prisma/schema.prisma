@@ -43,7 +43,7 @@ model Animal {
   id              String    @id @default(auto()) @map("_id") @db.ObjectId
   nome            String
   raca_id         String    @db.ObjectId
-  raca            Raca      @relation(fields: [ong_id], references: [id])
+  raca            Raca      @relation(fields: [raca_id], references: [id])
   peso            Float
   sexo            String
   porte           String
