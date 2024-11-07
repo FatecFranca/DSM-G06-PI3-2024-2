@@ -37,6 +37,14 @@ model Ong {
   procedimento           String
   animais                Animal[]
   adocoes                Adocao[]
+  imagens                imagemOng[]
+}
+
+model imagemOng {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  src            String
+  ong_id         String @db.ObjectId
+  ong            Ong    @relation(fields: [ong_id], references: [id])
 }
 
 model Animal {
@@ -57,6 +65,28 @@ model Animal {
   ong_id          String    @db.ObjectId
   ong             Ong       @relation(fields: [ong_id], references: [id])
   adocao          Adocao[]
+  imagens         ImagemAnimal[]
+}
+
+model ImagemAnimal {
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
+  src              String
+  animal_id        String @db.ObjectId
+  animal           Animal @relation(fields: [animal_id], references: [id])
+}
+
+model Especie {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  raca            Raca[]
+}
+
+model Raca {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  especie_id      String        @db.ObjectId
+  especie         Especie       @relation(fields: [especie_id], references: [id])
+  animal Animal[]
 }
 
 model Adocao {
@@ -77,18 +107,4 @@ model Adocao {
   ong               Ong      @relation(fields: [ong_id], references: [id])
   animal_id         String   @db.ObjectId
   animal            Animal   @relation(fields: [animal_id], references: [id])
-}
-
-model Especie {
-  id              String      @id @default(auto()) @map("_id") @db.ObjectId
-  nome            String
-  raca            Raca[]
-}
-
-model Raca {
-  id              String        @id @default(auto()) @map("_id") @db.ObjectId
-  nome            String
-  especie_id      String        @db.ObjectId
-  especie         Especie       @relation(fields: [especie_id], references: [id])
-  animal Animal[]
 }
