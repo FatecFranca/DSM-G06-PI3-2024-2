@@ -1,24 +1,54 @@
 import prisma from '../database/client.js'
+import { includeRelations } from '../lib/utils.js'
 
 const controller = {}
 
 controller.create = async function (req, res) {
+
+    const { imagens, ...ongData } = req.body
+    let ongCadastrada;
+
     try {
-        await prisma.ong.create({
-            data: req.body
+        ongCadastrada = await prisma.ong.create({
+            data: ongData
         })
         res.status(201).end()
+        console.log("Ong cadastrada com sucesso!")
     } catch (error) {
         console.error(error)
         res.status(500).send(error)
 
     }
+
+    if (imagens) {
+        try {
+            await Promise.all(
+                imagens.map((imagem) =>
+                    prisma.imagemOng.create({
+                        data: {
+                            src: imagem,
+                            ong_id: ongCadastrada.id,
+                        },
+                    })
+                )
+            )
+
+            // Faz o cadastro dos animais utilizando as imagens enviadas
+            res.status(201).end()
+            console.log('Imagens da ONG cadastrada com sucesso')
+        } catch (error) {
+            console.error(error)
+            res.status(500).send(error)
+        }
+    }
 }
 
 controller.retrieveAll = async function (req,res) {
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.ong.findMany({
-            orderBy: [{razao_social: 'asc'}]
+            orderBy: [{razao_social: 'asc'}],
+            include
         })
         res.send(result) // HTTP 200 ~> Implícito
     } catch (error) {
@@ -28,11 +58,13 @@ controller.retrieveAll = async function (req,res) {
 }
 
 controller.retrieveOne = async function (req,res) {
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.ong.findUnique({
             where: {
                 id: req.params.id
-            }
+            },
+            include
         })
         if(result) res.send(result)
             else res.status(404).end()

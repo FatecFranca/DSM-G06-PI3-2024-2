@@ -31,4 +31,10 @@ app.use('/animais', animaisRouter)
 import adocoesRouter from './routes/adocoes.js'
 app.use('/adocoes', adocoesRouter)
 
+import imagensAnimalRouter from './routes/imagensAnimal.js'
+app.use('/imagensAnimal', imagensAnimalRouter)
+
+import imagensOngRouter from './routes/imagensOng.js'
+app.use('/imagensOng', imagensOngRouter)
+
 export default app
