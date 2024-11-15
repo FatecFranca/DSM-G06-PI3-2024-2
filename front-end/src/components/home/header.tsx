@@ -20,15 +20,16 @@ export const Header = () => {
                 <div className="flex items-center gap-3">
                     <Logo size={50} colorido/>
                     <Link href='/'>
-                        <h1 className="text-2xl font-semibold text-shadow-md">PawsSefety</h1>
+                        <h1 className="text-2xl font-semibold text-shadow-md">PawsSafety</h1>
                     </Link>
                 </div>
                 <div className="hidden md:flex gap-6">
                     <NavItem label="Home"/>
+                    <NavItem label="Adoções"/>
+                    <NavItem label="Gatos"/>
+                    <NavItem label="Cachorros"/>
                     <NavItem label="Sobre"/>
-                    <NavItem label="Menu"/>
-                    <NavItem label="Doações"/>
-                    <NavItem label="Home"/>
+
                 </div>
                 <Link className='hidden md:flex' href={'/'}>
                     <FontAwesomeIcon className="size-8" icon={faCircleUser} />

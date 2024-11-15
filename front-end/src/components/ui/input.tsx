@@ -18,10 +18,12 @@ export const Input = ({ placeholder, icon, password, value, onChange }: Props) =
     return (
         <div
             className="
+            w-full
             has-[:focus]:border-sand-1400 
             bg-sand-300 
             text-sand-1400
             font-semibold
+            text-sm
             p-3 
             flex 
             items-center 

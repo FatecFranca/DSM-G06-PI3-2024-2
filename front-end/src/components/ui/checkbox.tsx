@@ -6,16 +6,16 @@ import { useState } from "react"
 
 type Props = {
     option: String;
-    onClick: () => void;
+    onClick?: () => void;
     checked: boolean;
 }
 
 
 export const CheckBox = ({ option, onClick, checked }: Props) => {
     return (
-        <div className="flex flex-row gap-2 items-center justify-center text-2xl text-sand-1500 font-medium">
+        <div className="flex flex-row gap-2 items-center justify-center text-base text-sand-1500 font-semibold">
             <div role="checkbox"
-                className="flex items-center justify-center aspect-square size-10 cursor-pointer bg-white rounded-xl"
+                className="flex items-center justify-center aspect-square size-8 cursor-pointer bg-sand-300 rounded-lg"
                 onClick={onClick}
                 aria-checked={checked}
             >
