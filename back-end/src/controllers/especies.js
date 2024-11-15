@@ -1,4 +1,5 @@
 import prisma from '../database/client.js'
+import { includeRelations } from '../lib/utils.js'
 
 const controller = {}
 
@@ -26,10 +27,12 @@ controller.create = async function (req, res) {
 }
 
 controller.retrieveAll = async function (req, res) {
+    const include = includeRelations(req.query)
     try {
         // Manda buscar os dados no servidor
         const result = await prisma.especie.findMany({
-            orderBy: [{ nome: 'asc' }]
+            orderBy: [{ nome: 'asc' }],
+            include
         })
 
         // Retorna os dados obtidos ao cliente com o status
@@ -46,12 +49,33 @@ controller.retrieveAll = async function (req, res) {
     }
 }
 
+controller.retrieveByName = async function (req, res) {
+    const include = includeRelations(req.query)
+    try {
+        console.log(req.params.nome)
+        const result = await prisma.especie.findFirst({
+            where: {
+                nome: req.params.nome
+            },
+            include: include
+        })
+        if (result) res.send(result) // HTTP 200 implícito
+        else res.status(404).end() // Cadastro não encontrado
+    }
+    catch(error) {
+        console.error(error)
+        res.status(500).send(error)
+    }
+}
+
 controller.retrieveOne = async function (req, res) {
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.especie.findUnique({
             where: {
                 id: req.params.id
-            }
+            },
+            include
         })
 
         if (result) res.send(result)

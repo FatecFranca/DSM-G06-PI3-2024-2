@@ -45,6 +45,7 @@ controller.retrieveOne = async function (req, res) {
     }
 }
 
+
 controller.update = async function (req, res) {
     try {
         const result = await prisma.raca.update({
