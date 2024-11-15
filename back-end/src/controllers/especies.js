@@ -54,6 +54,7 @@ controller.retrieveByName = async function (req, res) {
     try {
         console.log(req.params.nome)
         const result = await prisma.especie.findFirst({
+            
             where: {
                 nome: req.params.nome
             },

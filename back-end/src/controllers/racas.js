@@ -1,24 +1,26 @@
 import prisma from '../database/client.js'
+import { includeRelations } from '../lib/utils.js'
 
 const controller = {}
-const include = {especie: true}
 
-controller.create = async function (req,res) {
+
+controller.create = async function (req, res) {
     try {
-        await prisma.raca.create ({data: req.body})
+        await prisma.raca.create({ data: req.body })
         res.status(201).end()
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         res.status(500).send(error)
     }
 }
 
 controller.retrieveAll = async function (req, res) {
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.raca.findMany({
-            include: include,
-            orderBy: [{nome: 'asc'}]
+            include,
+            orderBy: [{ nome: 'asc' }]
         })
         res.send(result)
     }
@@ -29,17 +31,18 @@ controller.retrieveAll = async function (req, res) {
 }
 
 controller.retrieveOne = async function (req, res) {
+    const include = includeRelations(req.query)
     try {
         const result = await prisma.raca.findUnique({
             where: {
                 id: req.params.id
             },
-            include: include
+            include
         })
         if (result) res.send(result) // HTTP 200 implícito
         else res.status(404).end() // Cadastro não encontrado
     }
-    catch(error) {
+    catch (error) {
         console.error(error)
         res.status(500).send(error)
     }
@@ -49,7 +52,7 @@ controller.retrieveOne = async function (req, res) {
 controller.update = async function (req, res) {
     try {
         const result = await prisma.raca.update({
-            where: {id: req.params.id},
+            where: { id: req.params.id },
             data: req.body
         })
 
@@ -65,11 +68,11 @@ controller.update = async function (req, res) {
 controller.delete = async function (req, res) {
     try {
         await prisma.raca.delete({
-            where: {id: req.params.id}
+            where: { id: req.params.id }
         })
     }
-    catch(error) {
-        if(error?.error === 'P2025') {
+    catch (error) {
+        if (error?.error === 'P2025') {
             res.status(404).end()
         }
         else {
