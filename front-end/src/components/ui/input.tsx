@@ -17,27 +17,13 @@ export const Input = ({ placeholder, icon, password, value, onChange }: Props) =
     const [showPassowrd, setShowPassword] = useState(false);
     return (
         <div
-            className="
-            w-full
-            has-[:focus]:border-sand-1400 
-            bg-sand-300 
-            text-sand-1400
-            font-semibold
-            text-sm
-            p-3 
-            flex 
-            items-center 
-            rounded-full 
-            h-14 
-            border-2 
-            border-sand-300
-            "
-        >
+            className="w-full flex items-center p-3 has-[:focus]:border-sand-1400 bg-sand-300 text-sand-1400 font-semibold text-sm
+                        rounded-full h-14 border-2 border-sand-300">
             {
                 icon &&
                 <FontAwesomeIcon className="size-5" icon={icon} />
             }
-            
+
             <input
                 className="placeholder-sand-900 flex-1 outline-none h-full px-4 bg-transparent"
                 type={password && !showPassowrd ? 'password' : 'text'}

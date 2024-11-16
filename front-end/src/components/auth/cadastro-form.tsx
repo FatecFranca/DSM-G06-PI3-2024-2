@@ -16,7 +16,7 @@ export const CadastroForm = () => {
 
             <Button size={2} label="Entrar" onClick={() => { }} />
 
-            <div className=" text-deep-blue font-semibold flex flex-col justify-center items-center gap-1 lg:flex-row">
+            <div className="text-deep-blue font-semibold flex flex-col justify-center items-center gap-1 lg:flex-row">
                 <div>Já possui cadastro?</div>
                 <Link className=" hover:underline" href="/login">Login</Link>
             </div>

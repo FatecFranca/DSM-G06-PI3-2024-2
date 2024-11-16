@@ -52,7 +52,7 @@ model Animal {
   nome            String
   raca_id         String    @db.ObjectId
   raca            Raca      @relation(fields: [raca_id], references: [id])
-  peso            Float
+  peso            Float?
   sexo            String
   porte           String
   data_nascimento DateTime?

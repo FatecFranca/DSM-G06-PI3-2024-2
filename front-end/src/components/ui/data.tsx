@@ -1,18 +1,24 @@
 import { ChangeEvent, useState } from "react";
 
+type Props = {
+    onDateChange: (date: string) => void;
+}
 
-export const Data = () => {
+export const Data = ({ onDateChange }: Props) => {
     const [selectedDate, setSelectedDate] = useState("");
 
     const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setSelectedDate(event.target.value);
+        const date = event.target.value;
+        setSelectedDate(date);
+        onDateChange(date);
     };
 
 
     return (
-        <div className="flex flex-col text-sand-1500 w-full ">
-            <input className="px-4 font-semibold h-14 rounded-full text-sm" type="date" value={selectedDate}
-                onChange={handleDateChange}></input>
-        </div>
+        <input className="px-4 font-semibold h-14 rounded-full text-sm text-sand-1500 w-full   bg-sand-300 "
+            type="date"
+            value={selectedDate}
+            onChange={handleDateChange}
+        />
     )
 }

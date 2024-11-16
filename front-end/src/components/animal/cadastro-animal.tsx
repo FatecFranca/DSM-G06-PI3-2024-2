@@ -56,18 +56,18 @@ export const CadastroAnimal= () => {
 
                 <div className="flex w-full flex-col gap-1">
                     <label htmlFor="">Quais vacinas ele já tomou?</label>
-                    <InputGrande />
+                    <InputGrande placeholder="place" />
                 </div>
 
                 <div className="flex w-full flex-col gap-1">
                     <label htmlFor="">Descreva o animal</label>
-                    <InputGrande />
+                    <InputGrande placeholder="place" />
                 </div>
 
 
                 <div className="flex w-full flex-col gap-1">
                     <label htmlFor="">Qual o comportamento do animal?</label>
-                    <InputGrande />
+                    <InputGrande  placeholder="place"/>
                 </div>
                 <Button size={0} label="Cadastrar" />
             </div>

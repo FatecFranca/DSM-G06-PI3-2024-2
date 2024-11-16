@@ -13,7 +13,7 @@ controller.create = async function (req, res) {
         });
 
         // Faz o cadastro dos animais utilizando as imagens enviadas
-        res.status(201).end()
+        res.status(201).send(animal).end()
         console.log('Animal cadastrado com sucesso')
     } catch (error) {
         console.error(error)

@@ -1,7 +1,51 @@
 import prisma from '../database/client.js'
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+
 import { includeRelations } from '../lib/utils.js'
 
 const controller = {}
+
+controller.uploadONG = async function (req, res) {
+    try {
+        const uploadPath = path.resolve('src/public/imagens/ongs');
+
+        // Verifique se o diretório existe; caso contrário, crie-o
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
+        }
+
+        const storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+                cb(null, uploadPath); // Diretório onde as imagens serão salvas
+            },
+            filename: function (req, file, cb) {
+                const uniqueName = `${Date.now()}-${file.originalname}`;
+                cb(null, uniqueName); // Nome único para o arquivo
+            }
+        });
+
+        const upload = multer({ storage }).single('file'); // 'file' é o nome do campo esperado no formulário
+
+        upload(req, res, function (err) {
+            if (err instanceof multer.MulterError) {
+                return res.status(500).send({ error: 'Erro no Multer', details: err });
+            } else if (err) {
+                return res.status(500).send({ error: 'Erro inesperado', details: err });
+            }
+
+            const filePath = `/public/imagens/ongs/${req.file.filename}`;
+            return res.status(200).send({
+                message: 'Upload realizado com sucesso',
+                filePath,
+            });
+        });
+    } catch (error) {
+        console.error('Erro no upload:', error);
+        res.status(500).send({ error: 'Erro no servidor', details: error });
+    }
+};
 
 controller.create = async function (req, res) {
     try {

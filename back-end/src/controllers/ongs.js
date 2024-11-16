@@ -12,7 +12,7 @@ controller.create = async function (req, res) {
         ongCadastrada = await prisma.ong.create({
             data: ongData
         })
-        res.status(201).end()
+        res.status(201).send(ongCadastrada).end()
         console.log("Ong cadastrada com sucesso!")
     } catch (error) {
         console.error(error)
