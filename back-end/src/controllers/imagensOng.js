@@ -35,7 +35,7 @@ controller.uploadONG = async function (req, res) {
                 return res.status(500).send({ error: 'Erro inesperado', details: err });
             }
 
-            const filePath = `/public/imagens/ongs/${req.file.filename}`;
+            const filePath = `https://dsm-g06-pi3-2024-2.onrender.com/public/imagens/ongs/${req.file.filename}`;
             return res.status(200).send({
                 message: 'Upload realizado com sucesso',
                 filePath,
