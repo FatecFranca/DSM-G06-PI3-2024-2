@@ -21,7 +21,12 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 - **Oferecer às ONGs uma ferramenta prática para cadastrar animais disponíveis para adoção.**  
 - **Uma experiência otimizada tanto para desktop quanto para dispositivos móveis.**
 <br />  
-👉 Acesse agora mesmo clicando no link abaixo:  
+👉 Acesse agora mesmo clicando no link abaixo:
+
+
+## 📂 Prototipagem
+Confira o nosso FIGMA, onde aqui idealizamos o formato do nosso site, identidade, cores e design geral<br />
+> [PawsSafety || Conheça nosso FIGMA! ](https://www.figma.com/design/28pL6IgATrihzzu8VJAL9q)
 
 
 ## 🛠️ Ferramentas Utilizadas  
