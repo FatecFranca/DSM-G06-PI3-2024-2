@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Logo } from "../ui/logo"
-import { faBars, faHouse, faUser } from "@fortawesome/free-solid-svg-icons"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { NavItem } from "../nav/nav-item"
 

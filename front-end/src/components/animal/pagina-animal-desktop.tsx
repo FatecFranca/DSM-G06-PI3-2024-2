@@ -2,9 +2,7 @@
 import { Animal } from "@/types/animal"
 import { FotoAnimal } from "./fotos-animal"
 import { DescricaoAnimal } from "./descricoes/descricao-animal"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Button } from "@/components/ui/button";
-import { faMars, faVenus } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { CardOng } from "@/components/ong/card-ong";
 import { InformacoesAnimal } from "@/components/animal/descricoes/informacoes-animal";

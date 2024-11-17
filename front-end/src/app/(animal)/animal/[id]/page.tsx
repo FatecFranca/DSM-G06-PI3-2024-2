@@ -5,9 +5,6 @@ import { Footer } from "@/components/home/footer";
 import { PaginaAnimalDesktop } from "@/components/animal/pagina-animal-desktop";
 import { PaginaAnimalCelular } from "@/components/animal/pagina-animal-celular";
 
-import { useRouter } from 'next/router';
-import { useEffect } from "react";
-
 export default function Page() {
 
     return (

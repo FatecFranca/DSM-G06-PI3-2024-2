@@ -1,4 +1,4 @@
-import { faXmark, faHouse, faCircleUser, faCat, faDog, faBook, faQuestion, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faHouse, faCircleUser, faCat, faDog, faBook, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "../nav/nav-item";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Logo } from "../ui/logo";

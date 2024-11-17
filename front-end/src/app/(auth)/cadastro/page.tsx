@@ -1,5 +1,4 @@
 import { CadastroForm } from "@/components/auth/cadastro-form";
-import { LoginForm } from "@/components/auth/login-form";
 import { Logo } from "@/components/ui/logo";
 
 export default function Page() {

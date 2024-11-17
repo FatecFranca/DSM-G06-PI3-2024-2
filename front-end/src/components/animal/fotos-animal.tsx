@@ -18,7 +18,7 @@ export const FotoAnimal = ({ animal }: Props) => {
         const index = outrasImagens.findIndex((img) => img.src === imagem.src)
 
         console.log(index);
-        let atualizaImagens = outrasImagens;
+        const atualizaImagens = outrasImagens;
         console.log(atualizaImagens)
         atualizaImagens[index] = imagemPrincipal;
         setImagemPrincipal(imagem);

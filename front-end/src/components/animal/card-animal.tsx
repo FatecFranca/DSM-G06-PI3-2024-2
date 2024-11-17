@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const CardAnimal = ({ animal }: Props) => {
-    // Define uma imagem padrão para o caso de não ter imagens do animal
+
     const defaultImage = "https://i.pinimg.com/originals/da/07/a8/da07a810a210e37988780cbfb691ab9c.jpg"; // Substitua com o caminho correto da sua imagem de fallback
 
     return (
