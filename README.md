@@ -21,7 +21,7 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 - **Oferecer às ONGs uma ferramenta prática para cadastrar animais disponíveis para adoção.**  
 - **Uma experiência otimizada tanto para desktop quanto para dispositivos móveis.**
 <br />  
-👉 **Acesse agora mesmo clicando no link abaixo:**  
+👉 Acesse agora mesmo clicando no link abaixo:  
 
 
 ## 🛠️ Ferramentas Utilizadas  
