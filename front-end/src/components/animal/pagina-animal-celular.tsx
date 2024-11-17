@@ -1,3 +1,4 @@
+"use client"
 import { Animal } from "@/types/animal"
 import { FotoAnimal } from "./fotos-animal"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

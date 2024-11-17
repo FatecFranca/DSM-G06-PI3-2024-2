@@ -61,7 +61,8 @@ export const ImageUpload = ({ onImagesChange }: ImageUploadProps) => {
             {/* Preview Images */}
             <div className="w-full mt-4 grid grid-cols-5 gap-2">
                 {previewImages.map(image => (
-                    <div key={image.id} className="relative aspect-square">
+                    <div key={image.id} 
+                        className="relative aspect-square">
                         <img
                             src={image.url}
                             alt="Preview"

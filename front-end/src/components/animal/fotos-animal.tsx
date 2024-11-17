@@ -27,36 +27,25 @@ export const FotoAnimal = ({ animal }: Props) => {
 
     return (
 
-        <div className="flex sm:flex-row flex-col gap-2 w-full h-fit">
-            {outrasImagens.length > 0 &&
-                <div className="flex-col gap-1 hidden sm:flex justify-between sm:w-1/5">
-                    {outrasImagens &&
-                        outrasImagens.map((imagem) =>
-                        (
-                            <div key={imagem.src} className=" aspect-square cursor-pointer flex-1 rounded-2xl"
-                                onClick={() => handleImageClick(imagem)}>
-                                <img className="aspect-square object-cover rounded-xl  shadow-md" src={imagem ? imagem.src : "/"} alt={animal.nome} />
-                            </div>
-                        )
-                        )
-                    }
-                </div>
-            }
+        <div className="flex flex-col w-full gap-4">
 
-
-            <div className={`flex aspect-square justify-center rounded-2xl lg:rounded-3xl w-full shadow-xl  ${outrasImagens.length > 1 ? 'sm:w-4/5' : 'sm:w-full'}`}>
-                <img className="aspect-square object-cover rounded-2xl lg:rounded-3xl " src={imagemPrincipal ? imagemPrincipal.src : "/"} alt={animal.nome} />
+            <div className="aspect-square flex justify-center items-center w-full h-full rounded-2xl lg:rounded-3xl shadow-xl">
+                <img
+                    className="w-full h-full object-cover rounded-2xl lg:rounded-3xl"
+                    src={imagemPrincipal ? imagemPrincipal.src : "/"}
+                    alt={animal.nome}
+                />
             </div>
 
 
 
-            <div className="flex-row flex sm:hidden justify-between">
+            <div className="w-full grid grid-cols-4 gap-3">
                 {outrasImagens &&
                     outrasImagens.map((imagem) =>
                     (
-                        <div key={imagem.src} className="cursor-pointer flex center w-1/5"
+                        <div key={imagem.src} className="w-full cursor-pointer flex center relative aspect-square"
                             onClick={() => handleImageClick(imagem)}>
-                            <img className="aspect-square object-cover rounded-lg " src={imagem ? imagem.src : "/"} alt={animal.nome} />
+                            <img className="w-full object-cover aspect-square rounded-xl" src={imagem ? imagem.src : "/"} alt={animal.nome} />
                         </div>
                     )
                     )

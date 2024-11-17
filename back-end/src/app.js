@@ -19,8 +19,9 @@ app.use(cookieParser())
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
-// Configurando para acessar a pasta da aplicação
-app.use('/public', express.static(path.join('C:', 'Users', 'gabri', 'Documents', 'Repositórios', 'DSM-G06-PI3-2024-2', 'back-end', 'src', 'public')));
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(cors())
 

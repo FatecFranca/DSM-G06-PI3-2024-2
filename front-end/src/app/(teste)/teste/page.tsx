@@ -1,8 +1,14 @@
+import { Icon } from "@/components/ui/Icon";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+
 export default function Page() {
     return (
-        <div>
-            <img src="http://localhost:9090/public/imagens/animais/1731795482260-FOTO 3 POR 4.jpg" alt="" />
-            
-        </div>
+        <div className="w-full items-center flex gap-2 justify-center min-h-screen">
+            <Icon icon={faPaw} size={1}/>
+            <Icon icon={faPaw} size={2}/>
+            <Icon icon={faPaw} size={3}/>
+            <Icon icon={faPaw} size={4}/>
+            <Icon icon={faPaw} size={5}/>
+        </div> 
     )
 }
