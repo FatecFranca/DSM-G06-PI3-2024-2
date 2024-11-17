@@ -26,14 +26,14 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 
 ## 🛠️ Ferramentas Utilizadas  
 
-- ![Next.js](https://img.shields.io/badge/-Next.js-000?logo=next.js&logoColor=white) **Next.js** - Framework para aplicações React.  
-- ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black) **React** - Biblioteca para construção de interfaces.  
-- ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black) **JavaScript** - Linguagem de programação usada no frontend.  
-- ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) **TypeScript** - Superset de JavaScript com tipagem estática.  
-- ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white) **CSS** - Estilização das páginas web.  
-- ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?logo=prisma&logoColor=white) **Prisma** - ORM para interação com o banco de dados.  
-- ![Thunder Client](https://img.shields.io/badge/-Thunder%20Client-000000?logo=thunder-client&logoColor=white) **Thunder Client** - Testes de APIs diretamente no editor.  
-- ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white) **MongoDB** - Banco de dados NoSQL usado no backend.  
+- ![Next.js](https://img.shields.io/badge/-Next.js-000?logo=next.js&logoColor=white) - Framework para aplicações React.  
+- ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black) - Biblioteca para construção de interfaces.  
+- ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black) - Linguagem de programação usada no frontend.  
+- ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) - Superset de JavaScript com tipagem estática.  
+- ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white) - Estilização das páginas web.  
+- ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?logo=prisma&logoColor=white) - ORM para interação com o banco de dados.  
+- ![Thunder Client](https://img.shields.io/badge/-Thunder%20Client-000000?logo=thunder-client&logoColor=white) - Testes de APIs diretamente no editor.  
+- ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white) - Banco de dados NoSQL usado no backend.  
 
 
 ## 💡 Integrantes do projeto
