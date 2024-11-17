@@ -13,7 +13,6 @@ controller.create = async function (req, res) {
         res.status(500).send(error)
     }
 }
-
 controller.retrieveAll = async function (req, res) {
     const include = includeRelations(req.query)
     try {
