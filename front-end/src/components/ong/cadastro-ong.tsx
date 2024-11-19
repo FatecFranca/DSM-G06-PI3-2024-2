@@ -3,18 +3,21 @@
 import { Input } from "@/components/ui/input";
 import { InputGrande } from "@/components/ui/inputGrande";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { api } from "@/conection/api";
 import { AxiosError } from "axios";
 
-
 export const CadastroONG = () => { 
+    const [email, setEmail] = useState<string>();
+    const [senha, setSenha] = useState<string>();
 
-    const email = sessionStorage.getItem("email");
-    const senha = sessionStorage.getItem("senha");
-
+    useEffect(() => {
+         setEmail(sessionStorage.getItem("email") || "");
+         setSenha(sessionStorage.getItem("senha") || "");
+      }, []);
+    
     const [nome, setNome] = useState<string>();
     const [razaoSocial, setRazaoSocial] = useState<string>();
     const [cep, setCep] = useState<string>();
