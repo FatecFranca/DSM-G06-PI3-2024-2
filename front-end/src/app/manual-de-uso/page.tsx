@@ -1,9 +1,6 @@
 import { Footer } from "@/components/home/footer";
 import { Header } from "@/components/home/header";
 import { PageName } from "@/components/ui/PageName";
-import { fa1 } from "@fortawesome/free-solid-svg-icons/fa1";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Page() {
     return (

@@ -2,7 +2,7 @@ import { CardDev } from "@/components/devs/card-devs";
 import { Footer } from "@/components/home/footer";
 import { Header } from "@/components/home/header";
 import { PageName } from "@/components/ui/PageName";
-import Image from "next/image";
+
 
 export default function Page() {
     return (

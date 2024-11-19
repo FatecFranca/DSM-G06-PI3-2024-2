@@ -1,5 +1,4 @@
 "use client"
-import { useUser } from "@/conection/context";
 import { CardAnimal, CardAnimalSkeleton } from "@/components/animal/card-animal";
 import { faPaw, faQuestion,  } from "@fortawesome/free-solid-svg-icons";
 import { Icon } from "@/components/ui/Icon";

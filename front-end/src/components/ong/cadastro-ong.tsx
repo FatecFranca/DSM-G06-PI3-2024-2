@@ -3,20 +3,17 @@
 import { Input } from "@/components/ui/input";
 import { InputGrande } from "@/components/ui/inputGrande";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { api } from "@/conection/api";
 import { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
 
 
 export const CadastroONG = () => { 
 
     const email = sessionStorage.getItem("email");
     const senha = sessionStorage.getItem("senha");
-
-    const router = useRouter();
 
     const [nome, setNome] = useState<string>();
     const [razaoSocial, setRazaoSocial] = useState<string>();
