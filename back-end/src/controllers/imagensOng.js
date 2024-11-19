@@ -7,7 +7,7 @@ import { includeRelations } from '../lib/utils.js'
 
 const controller = {}
 
-controller.uploadONG = async function (req, res) {
+controller.upload = async function (req, res) {
     try {
         const uploadPath = path.resolve('src/public/imagens/ongs');
 
@@ -28,18 +28,31 @@ controller.uploadONG = async function (req, res) {
 
         const upload = multer({ storage }).single('file'); // 'file' é o nome do campo esperado no formulário
 
-        upload(req, res, function (err) {
+        upload(req, res, async function (err) {
             if (err instanceof multer.MulterError) {
                 return res.status(500).send({ error: 'Erro no Multer', details: err });
             } else if (err) {
                 return res.status(500).send({ error: 'Erro inesperado', details: err });
             }
 
-            const filePath = `https://dsm-g06-pi3-2024-2.onrender.com/public/imagens/ongs/${req.file.filename}`;
-            return res.status(200).send({
-                message: 'Upload realizado com sucesso',
-                filePath,
-            });
+            const filePath = `http://localhost:9090/public/imagens/ongs/${req.file.filename}`;
+
+            try {
+                await prisma.imagemOng.create({
+                    data: {
+                        ong_id: req.params.idong,
+                        src: filePath
+                    }
+                });
+
+                return res.status(200).send({
+                    message: 'Upload realizado com sucesso',
+                    filePath,
+                });
+            } catch (error) {
+                console.error('Erro ao salvar imagem no banco:', error);
+                return res.status(500).send({ error: 'Erro ao salvar imagem no banco de dados', details: error });
+            }
         });
     } catch (error) {
         console.error('Erro no upload:', error);

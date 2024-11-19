@@ -1,13 +1,11 @@
 import { Imagem } from "./imagem";
 import { Ong } from "./ong";
+import { Raca } from "./raca";
 
 export type Animal = {
     id?: string;
     nome: string;
-    raca?: {
-        id: string;
-        nome: string;
-    };
+    raca: Raca
     peso: number;
     sexo: string;
     porte: string;

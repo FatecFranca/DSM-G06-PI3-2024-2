@@ -15,14 +15,18 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
     "next": "15.0.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-input-mask-next": "^3.0.0-alpha.12",
+    "react-text-mask": "^5.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-input-mask": "^3.0.6",
     "eslint": "^8",
     "eslint-config-next": "15.0.1",
     "postcss": "^8",

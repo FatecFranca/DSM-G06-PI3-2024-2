@@ -105,7 +105,7 @@ export const CadastroAnimal = () => {
 
     return (
         <div className="w-full h-full flex flex-col items-center p-8 gap-2 text-sand-1500 font-semibold text-lg lg:w-11/12 justify-center xl:w-10/12 2xl:w-9/12">
-            <h2 className="text-deep-blue font-semibold text-3xl">Cadastro do Animal</h2>
+            <h2 className="text-deep-blue font-semibold text-3xl">Cadastrar Animal</h2>
             <div className="flex flex-col gap-8 w-full">
                 <div className="flex flex-col 
                                 md:grid md:gap-4 md:grid-cols-2

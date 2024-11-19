@@ -14,7 +14,7 @@ export const CarouselBanner = () => {
     }, []);
 
     return (
-        <div className="flex items-center justify-center w-full lg:w-4/5">
+        <div className="flex items-center justify-center w-full lg:w-5/6">
             {currentIndex === 0 && (
                 <Banner
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXE5bA1Xogyiok6EVIAkMNUnyRh7teLY0_1g&s"

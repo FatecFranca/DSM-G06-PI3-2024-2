@@ -1,8 +1,12 @@
+"use client"
+
 import { CadastroForm } from "@/components/auth/cadastro-form";
 import { Logo } from "@/components/ui/logo";
 
+
 export default function Page() {
     return (
+
         <div className="w-screen min-h-screen flex items-center justify-center p-6">
             <div className="flex justify-center overflow-hidden flex-col xl:flex-row w-full max-w-[1300px]">
                 {/* LADO ESQUERDO DA PÁGINA */}

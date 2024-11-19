@@ -48,6 +48,24 @@ controller.retrieveOne = async function (req, res) {
     }
 }
 
+controller.retrieveByEspecie = async function (req, res) {
+    const include = includeRelations(req.query)
+    try {
+        const result = await prisma.raca.findMany({
+            where: {
+                especie_id: req.params.id
+            },
+            include
+        })
+        if (result) res.send(result) // HTTP 200 implícito
+        else res.status(404).end() // Cadastro não encontrado
+    }
+    catch (error) {
+        console.error(error)
+        res.status(500).send(error)
+    }
+}
+
 
 controller.update = async function (req, res) {
     try {
