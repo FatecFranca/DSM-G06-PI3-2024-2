@@ -32,7 +32,7 @@ export default function Home() {
           <div className="flex gap-6 w-screen flex-wrap justify-center">
             <Icon size={2} icon={faPaw} onClick={() => {router.push('/adocoes')}}/>
             <Icon size={2} icon={faCircleUser}  onClick={() => {router.push('/cadastro')}}/>
-            <Icon size={2} icon={faQuestion}  onClick={() => {router.push('/duvidas')}}/>
+            <Icon size={2} icon={faQuestion}  onClick={() => {router.push('/sobre')}}/>
           </div>
 
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:w-5/6 2xl:grid-cols-4 max-w-screen mx-auto justify-items-center ">
