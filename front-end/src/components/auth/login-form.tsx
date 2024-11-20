@@ -86,7 +86,7 @@ export const LoginForm = () => {
                 </Link>
             </div>
 
-            <div className="mt-2 flex flex-col justify-center w-1/2 text-center gap-2">
+            <div className="mt-2 flex flex-col justify-center sm:w-1/2 w-11/12 text-center gap-2">
                 <p className="text-sm font-regular text-deep-blue">Toque no botão abaixo para acessar com o usuário de testes:</p>
                 <div>
                     <Button size={3} label="Acessar no modo teste" onClick={acessoTeste}></Button>

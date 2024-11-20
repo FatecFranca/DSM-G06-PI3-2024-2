@@ -19,7 +19,8 @@ export const Button = ({ label, onClick, size, red }: Props) => {
                 cursor-pointer
                 ${red ? "bg-red-700" : "bg-deep-blue"}
                 text-white 
-                font-semibold 
+                font-semibold
+                text-center
                 rounded-full
                  shadow-sm
                     ${size === 0 && "2xl:py-4 2xl:px-6 py-3 px-6 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl"}

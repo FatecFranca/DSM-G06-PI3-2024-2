@@ -35,7 +35,7 @@ controller.upload = async function (req, res) {
                 return res.status(500).send({ error: 'Erro inesperado', details: err });
             }
 
-            const filePath = `http://localhost:9090/public/imagens/ongs/${req.file.filename}`;
+            const filePath = `${process.env.IMAGE_URL}/imagens/ongs/${req.file.filename}`;
 
             try {
                 await prisma.imagemOng.create({

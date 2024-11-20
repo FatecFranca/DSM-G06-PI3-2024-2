@@ -15,11 +15,18 @@ app.use(cookieParser())
 
 app.use('/', indexRouter)
 
+/**ACESSO DAS IMAGENS ATRAVÉS DO SERVIDOR */
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-
+/**ACESSO DAS IMAGENS LOCALMENTE */
+/** SE VOCÊ FOR USAR O PROJETO LOCALMENTE FAÇA O SEGUINTE PROCEDIMENTO:
+ * 1. COMENTE AS DUAS LINHAS ACIMA
+ * 2. DESCOMENTE A LINHA ABAIXO
+ * 3. ACESSE O DIRETÓRIO DE ONDE SALVOU O PROJETO E SUBSTITUA OS VALORES DO CAMINHO DA LINHA ABAIXO, PELO DA SUA MÁQUINA LOCAL
+ * APENAS MANTENHA O DSM-G06-PI3-2024-2, 'back-end', 'src', 'public'.
+ */
+// app.use('/public', express.static(path.join('C:', 'Users', 'henri', 'OneDrive', 'Área de Trabalho', 'paws_safety3', 'DSM-G06-PI3-2024-2', 'back-end', 'src', 'public')));
 
 app.use(cors())
 
