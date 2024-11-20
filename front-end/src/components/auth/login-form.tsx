@@ -7,7 +7,6 @@ import { api } from "@/conection/api";
 import { useState, useEffect } from "react";
 import { Ong } from "@/types/ong";
 import { useRouter } from "next/navigation";
-import { AxiosError } from "axios";
 
 export const LoginForm = () => {
     const router = useRouter();
@@ -58,8 +57,8 @@ export const LoginForm = () => {
             } else {
                 alert("Senha errada, por favor tente novamente.");
             }
-        } catch (error: any) {
-            if (error.response?.status === 404) {
+        } catch (error) {
+            if (error instanceof Error && (error as any)?.response?.status === 404) {
                 alert("Usuário Não Encontrado");
             } else {
                 alert("Ocorreu um erro ao fazer login. Tente novamente mais tarde.");
