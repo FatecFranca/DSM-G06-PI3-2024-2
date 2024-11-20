@@ -69,7 +69,6 @@ export const AtualizarAnimal = () => {
 
 
     const HandleAtualizarAnimal = async () => {
-        let idAnimalCriado;
 
         if (nome && especie && porte && sexo && dataNascimento && raca && descricao && comportamento && vacinas) {
             const cadastro = {

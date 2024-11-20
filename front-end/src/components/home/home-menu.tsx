@@ -1,6 +1,6 @@
 "use client"
 
-import { faXmark, faHouse, faCircleUser, faCat, faDog, faBook, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faHouse, faCircleUser, faCat, faDog, faBook } from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "../nav/nav-item";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Logo } from "../ui/logo";
@@ -16,7 +16,7 @@ export const HomeMenu = ({ closeAction }: Props) => {
     const [ongConectado, setOngConectada] = useState(false);
 
     useEffect(() => {
-        // Verifica se o ID da ONG já está armazenado no navegador
+
         const storedOngId = sessionStorage.getItem("ongId");
 
         if(storedOngId) {

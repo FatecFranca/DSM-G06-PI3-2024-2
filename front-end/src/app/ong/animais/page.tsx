@@ -1,15 +1,11 @@
 "use client";
 
-import { CardAnimal, CardAnimalSkeleton } from "@/components/animal/card-animal";
-import { faPaw, faQuestion } from "@fortawesome/free-solid-svg-icons";
-import { Icon } from "@/components/ui/Icon";
+import { CardAnimalSkeleton } from "@/components/animal/card-animal";
 import { Header } from "@/components/home/header";
 import { Footer } from "@/components/home/footer";
-import { CarouselBanner } from "@/components/home/carousel-banner";
 import { useState, useEffect } from "react";
 import { Animal } from "@/types/animal";
 import { api } from "@/conection/api";
-import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { useRouter } from "next/navigation";
 import { PageName } from "@/components/ui/PageName";
 import { CardAnimalOng } from "@/components/animal/card-animal-ong";

@@ -2,7 +2,6 @@ import { Footer } from "@/components/home/footer";
 import { Header } from "@/components/home/header";
 import { Icon } from "@/components/ui/Icon";
 import { PageName } from "@/components/ui/PageName";
-import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons/faCirclePlus";
 import { faGear } from "@fortawesome/free-solid-svg-icons/faGear";
 import { faPaw } from "@fortawesome/free-solid-svg-icons/faPaw";

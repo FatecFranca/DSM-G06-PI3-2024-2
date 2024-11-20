@@ -7,6 +7,7 @@ import { api } from "@/conection/api";
 import { useState, useEffect } from "react";
 import { Ong } from "@/types/ong";
 import { useRouter } from "next/navigation";
+import { AxiosError } from "axios";
 
 export const LoginForm = () => {
     const router = useRouter();
