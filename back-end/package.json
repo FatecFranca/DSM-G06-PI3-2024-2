@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./src/bin/server.js",
-    "start": "node ./src/bin/server.js",
-    "vercel-build": "npx prisma generate"
+    "start": "node ./src/bin/server.js"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",
