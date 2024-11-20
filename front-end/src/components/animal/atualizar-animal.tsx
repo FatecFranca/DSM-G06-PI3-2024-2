@@ -5,7 +5,6 @@ import { ListagemRacas } from "@/components/animal/listagem-racas";
 import { CheckBox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { InputGrande } from "@/components/ui/inputGrande";
-
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
@@ -86,13 +85,13 @@ export const AtualizarAnimal = () => {
             };
 
             try {
-                const response = await api.put('/animais/', cadastro);
+                const response = await api.put(`/animais/${animal?.id}`, cadastro);
 
                 if (response && imagens.length > 0 && animal?.id) {
-                    await HandleCadastrarImagens(animal?.id);
+                    await HandleCadastrarImagens(animal.id);
                 }
-
-                router.push(`/animal/${idAnimalCriado}`)
+                alert("Animal atualizado com sucesso!")
+                if(animal?.id) router.push(`/animal/${animal.id}`)
 
             } catch (error) {
                 if (error instanceof AxiosError) {

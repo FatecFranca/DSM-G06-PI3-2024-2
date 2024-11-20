@@ -9,7 +9,7 @@ import { ImageUpload } from "@/components/ui/image-upload";
 import { api } from "@/conection/api";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
-import { formatarNumero } from "@/utils/formatarTelefone";
+import { formatarTelefoneBanco } from "@/utils/formatarTelefoneBanco";
 
 export const CadastroONG = () => {
     const [email, setEmail] = useState<string>();
@@ -60,9 +60,11 @@ export const CadastroONG = () => {
         if (nome && razaoSocial && bairro && cep && estado && cidade && logradouro && descricao &&
             procedimento && documentos && adocoes && whatsApp && cnpj && pix && horario) {
             
-            setWhatsApp(formatarNumero(whatsApp))
-
-            if (telefone) { setTelefone(formatarNumero(telefone)) }
+            const whatsAppFormatado = formatarTelefoneBanco(whatsApp)
+            let telefoneFormatado;
+            if (telefone) {
+                telefoneFormatado = formatarTelefoneBanco(telefone)
+             }
 
             const cadastro = {
                 nome_fantasia: nome,
@@ -78,9 +80,9 @@ export const CadastroONG = () => {
                 estado: estado,
                 cep: cep,
                 descricao: descricao,
-                whatsapp: whatsApp,
+                whatsapp: whatsAppFormatado,
                 horario_funcionamento: horario,
-                telefone: telefone || whatsApp,
+                telefone: telefoneFormatado || whatsApp,
                 chave_pix: pix,
                 quantidade_adocoes: Number(adocoes),
                 documentos_necessarios: documentos,

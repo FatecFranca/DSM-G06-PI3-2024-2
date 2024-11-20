@@ -8,8 +8,9 @@ import { Button } from "../ui/button";
 import { api } from "@/conection/api";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
-import { formatarNumero } from "@/utils/formatarTelefone";
+import { formatarTelefoneBanco } from "@/utils/formatarTelefoneBanco";
 import { Ong } from "@/types/ong";
+import { formatarTelefone } from "@/utils/formatarTelefone";
 
 
 export const AtualizaOng = () => {
@@ -20,7 +21,6 @@ export const AtualizaOng = () => {
 
     useEffect(() => {
         const storedOngId = sessionStorage.getItem("ongId");
-
         if (storedOngId) {
             setOngID(storedOngId);
             api.get(`/ongs/${storedOngId}`).then((response) => {
@@ -30,7 +30,7 @@ export const AtualizaOng = () => {
                 setSenhaOriginal(ong?.senha);
             });
         }
-    }, []); // Passa um array vazio como dependência para executar apenas uma vez
+    }, []);
 
     const [nome, setNome] = useState<string>();
     const [razaoSocial, setRazaoSocial] = useState<string>();
@@ -56,7 +56,7 @@ export const AtualizaOng = () => {
 
 
     const handleAtualizarONG = async () => {
-        let idOngCadastrada;
+
 
         if (nome && razaoSocial && bairro && cep && estado && cidade && logradouro && descricao &&
             procedimento && documentos && adocoes && whatsApp && cnpj && pix && horario) {
@@ -65,9 +65,13 @@ export const AtualizaOng = () => {
                 setSenha(senhaOriginal);
             }
 
-            setWhatsApp(formatarNumero(whatsApp))
+            const whatsAppFormatado = formatarTelefoneBanco(whatsApp)
+            let telefoneFormatado;
 
-            if (telefone) { setTelefone(formatarNumero(telefone)) }
+
+            if (telefone) {
+                telefoneFormatado = formatarTelefoneBanco(telefone);
+            }
 
             const cadastro = {
                 nome_fantasia: nome,
@@ -81,9 +85,9 @@ export const AtualizaOng = () => {
                 estado: estado,
                 cep: cep,
                 descricao: descricao,
-                whatsapp: whatsApp,
+                whatsapp: whatsAppFormatado,
                 horario_funcionamento: horario,
-                telefone: telefone || whatsApp,
+                telefone: telefoneFormatado || whatsAppFormatado,
                 chave_pix: pix,
                 quantidade_adocoes: Number(adocoes),
                 documentos_necessarios: documentos,
@@ -94,9 +98,7 @@ export const AtualizaOng = () => {
 
             try {
 
-                const response = await api.put(`/ongs/${ongID}`, cadastro);
-
-                idOngCadastrada = response.data.id;
+                await api.put(`/ongs/${ongID}`, cadastro);
 
                 alert("Atualização realizada com sucesso!")
                 router.push('/ong/home')
@@ -158,12 +160,30 @@ export const AtualizaOng = () => {
                 <div className="flex flex-col gap-8 md:grid md:grid-cols-2">
                     <div className="w-full flex flex-col gap-1">
                         <label htmlFor="input" className="text-sand-1500 font-semibold text-lg">WhatsApp</label>
-                        <Input placeholder="Digite o número do WhatsApp da ONG" defaultValue={ong?.whatsapp} onChange={(e) => setWhatsApp(e)} type="phone" />
+                        {
+                            ong?.whatsapp &&
+                            <Input placeholder="Digite o número do WhatsApp da ONG" defaultValue={formatarTelefone(ong?.whatsapp)} onChange={(e) => setWhatsApp(e)} type="phone" />
+                        }
+                        {
+                            !ong?.whatsapp &&
+                            <Input placeholder="Digite o número do WhatsApp da ONG" onChange={(e) => setWhatsApp(e)} type="phone" />
+                        }
+
                     </div>
 
                     <div className="w-full flex flex-col gap-1">
                         <label htmlFor="input" className="text-sand-1500 font-semibold text-lg">Telefone</label>
-                        <Input placeholder="Digite o número do telefone da ONG" defaultValue={ong?.telefone} onChange={(e) => setTelefone(e)} type="phone" />
+                        {
+                            ong?.telefone &&
+                            <Input placeholder="Digite o número do telefone da ONG" defaultValue={formatarTelefone(ong?.telefone)} onChange={(e) => setTelefone(e)} type="phone" />
+                        }
+
+                        {
+                            !ong?.telefone &&
+                            <Input placeholder="Digite o número do telefone da ONG" onChange={(e) => setTelefone(e)} type="phone" />
+                        }
+
+
                     </div>
                 </div>
                 <div className="flex flex-col gap-8 md:grid md:grid-cols-[2fr_1fr]">

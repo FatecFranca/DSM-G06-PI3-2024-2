@@ -12,10 +12,8 @@ export const InformacoesAnimalCelular = ({ animal }: Props) => {
         text-deep-blue
         text-xl
         flex
-        items-center
-        flex-row
-        justify-around
-        gap-3
+        flex-col
+        gap-2
         ">
             <div className="flex flex-col gap-2">
                 <div className="font-semibold flex gap-2">

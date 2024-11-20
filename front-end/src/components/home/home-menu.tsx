@@ -43,7 +43,6 @@ export const HomeMenu = ({ closeAction }: Props) => {
                 <NavItem href="/gatos" icon={faCat} label="Gatos" />
                 <NavItem href="/cachorros" icon={faDog} label="Cachorros" />
                 <NavItem href="/sobre" icon={faBook} label="Sobre" />
-                <NavItem href="/duvidas" icon={faCircleQuestion} label="Dúvidas" />
                 <NavItem href={ongConectado ? "/ong/home" : "/login"} icon={ongConectado ? faCircleUser : faRightToBracket}  label={ongConectado ? "Meu perfil" : "Entrar"} />
             </div>
 

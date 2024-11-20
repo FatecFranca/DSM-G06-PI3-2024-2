@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
+import { formatarTelefone } from '@/utils/formatarTelefone';
 import { api } from "@/conection/api"
 import Link from 'next/link';
 
@@ -46,9 +47,10 @@ export const CardOngCelular = ({ ong }: Props) => {
                 </div>
             </div>
             <div className='flex gap-3 text-xl font-semibold flex-col'>
+                
                 <div>
                     <p>Telefone</p>
-                    <p className='text-base font-light'>{ong.whatsapp}</p>
+                    <p className='text-base font-light'>{formatarTelefone(ong.whatsapp)}</p>
                 </div>
                 <div>
                     <p>Horário de Funcionamento</p>

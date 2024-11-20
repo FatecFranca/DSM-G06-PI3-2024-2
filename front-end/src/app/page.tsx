@@ -13,15 +13,20 @@ import { useRouter } from "next/navigation";
 
 
 export default function Home() {
+  const [ongID, setOngID] = useState<string>();
   const [animaisBanco, setAnimaisBanco] = useState([]);
   const skeleton = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const router = useRouter ();
   useEffect(() => {
+
+    const conexao = sessionStorage.getItem("ongId")
+    if (conexao) setOngID(conexao);
+
     api.get("/animais/?include=raca,imagens").then((response) => {
       console.log(response.data);
-      setAnimaisBanco(response.data); // Certifique-se de que response.data é um array
+      setAnimaisBanco(response.data);
     });
-  }, []); // Use Effect faz com que apenas chame essas funções quando a aplicação iniciar
+  }, []); 
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -31,7 +36,7 @@ export default function Home() {
           <CarouselBanner />
           <div className="flex gap-6 w-screen flex-wrap justify-center">
             <Icon size={2} icon={faPaw} onClick={() => {router.push('/adocoes')}}/>
-            <Icon size={2} icon={faCircleUser}  onClick={() => {router.push('/cadastro')}}/>
+            <Icon size={2} icon={faCircleUser}  onClick={() => {router.push(ongID ? '/ong/home' : '/login')}}/>
             <Icon size={2} icon={faQuestion}  onClick={() => {router.push('/sobre')}}/>
           </div>
 

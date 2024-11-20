@@ -74,12 +74,12 @@ export const LoginForm = () => {
                 <Input placeholder="Digite a sua senha" password onChange={(e) => setSenhaLogin(e)} />
             </div>
 
-            <div className="flex flex-col justify-center w-1/2 text-center">
+            <div className="flex flex-col justify-center w-1/2 text-center max-w-[500px]">
                 <Button size={2} label="Entrar" onClick={login} />
             </div>
 
 
-            <div className=" text-deep-blue font-semibold flex flex-col justify-center items-center gap-1 lg:flex-row">
+            <div className=" text-deep-blue font-semibold flex flex-col justify-center items-center gap-1 lg:flex-row ">
                 <div>Não possui cadastro?</div>
                 <Link className=" hover:underline" href="/cadastro">
                     Cadastre-se
