@@ -12,6 +12,6 @@ router.put('/:id', controller.update)
 router.delete('/:id', controller.delete)
 
 /**Upload das imagens da ONG */
-router.post('/:idong', controller.upload)
+router.post('/:idOng', controller.upload)
 
 export default router

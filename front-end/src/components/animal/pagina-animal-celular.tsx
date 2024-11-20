@@ -15,12 +15,12 @@ import { InformacoesAnimalCelular } from "./celular/informacoes-animal-celular";
 
 export const PaginaAnimalCelular = () => {
 
-    const [animal, setAnimal] = useState<Animal | null>(null); // Inicializa como null para verificar o estado de carregamento
+    const [animal, setAnimal] = useState<Animal | null>(null);
     const params = useParams();
 
     useEffect(() => {
         if (params.id) {
-            api.get(`/animais/${params.id}?include=raca,imagens,ong`).then((response) => {
+            api.get(`/animais/${params.id}/?include=raca,imagens,ong`).then((response) => {
                 console.log(response.data);
                 setAnimal(response.data);
             });

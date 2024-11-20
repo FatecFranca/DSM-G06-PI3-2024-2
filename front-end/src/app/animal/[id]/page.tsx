@@ -11,7 +11,6 @@ export default function Page() {
         <div className="w-full flex-col min-h-screen overflow-x-hidden">
             <main className="flex-grow mb-10">
                 <Header />
-                { /** Primeira DIV */}
                 <div className="items-center justify-center  hidden sm:flex">
                     <PaginaAnimalDesktop />
                 </div>

@@ -3,7 +3,7 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Props = {
     placeholder: string;
@@ -22,8 +22,18 @@ export const Input = ({
     onChange,
     type = "text",
 }: Props) => {
-    const [value, setValue] = useState(defaultValue);
+
+    const [value, setValue] = useState<string>(defaultValue || "");
+
     const [showPassword, setShowPassword] = useState(false);
+
+    useEffect(() => {
+  
+        setValue(defaultValue || "");
+        if (onChange && defaultValue) {
+            onChange(defaultValue);
+        }
+    }, [defaultValue]);
 
     const formatValue = (value: string, type: string): string => {
         const onlyNumbers = value.replace(/\D/g, "");
@@ -39,9 +49,9 @@ export const Input = ({
                     .substring(0, 18);
             case "phone":
                 return onlyNumbers
-                    .replace(/(\d{2})(\d)/, "($1) $2") 
-                    .replace(/(\d{5})(\d{4})$/, "$1-$2") 
-                    .substring(0, 15); 
+                    .replace(/(\d{2})(\d)/, "($1) $2")
+                    .replace(/(\d{5})(\d{4})$/, "$1-$2")
+                    .substring(0, 15);
             default:
                 return value;
         }
@@ -51,7 +61,7 @@ export const Input = ({
         const inputValue = e.target.value;
         const formattedValue = formatValue(inputValue, type);
         setValue(formattedValue);
-        if (onChange) onChange(formattedValue);
+        if (onChange) onChange(formattedValue); 
     };
 
     return (

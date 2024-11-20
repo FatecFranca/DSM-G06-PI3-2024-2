@@ -74,6 +74,24 @@ controller.retrieveOne = async function (req,res) {
     }
 }
 
+controller.retrieveByEmail = async function (req,res) {
+    const include = includeRelations(req.query)
+    try {
+        const result = await prisma.ong.findUnique({
+            where: {
+                email: req.params.email
+            },
+            include
+        })
+        if(result) res.send(result)
+            else res.status(404).end()
+    } catch (error) {
+        console.error(error)
+        res.status(500).send(error)
+    }
+}
+
+
 controller.update = async function (req,res) {
     try {
        const result = await prisma.ong.update({

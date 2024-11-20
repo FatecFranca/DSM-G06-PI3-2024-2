@@ -1,13 +1,29 @@
+"use client"
+
 import { faXmark, faHouse, faCircleUser, faCat, faDog, faBook, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "../nav/nav-item";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Logo } from "../ui/logo";
+import { useEffect, useState } from "react";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons/faRightToBracket";
 
 type Props = {
     closeAction: () => void;
 }
 
 export const HomeMenu = ({ closeAction }: Props) => {
+
+    const [ongConectado, setOngConectada] = useState(false);
+
+    useEffect(() => {
+        // Verifica se o ID da ONG já está armazenado no navegador
+        const storedOngId = sessionStorage.getItem("ongId");
+
+        if(storedOngId) {
+            setOngConectada(true);
+        }
+    });
+
     return (
         <div className="lg:hidden fixed inset-0 py-4 px-6 bg-deep-blue z-20">
             <div className="flex justify-between items-center ">
@@ -28,7 +44,7 @@ export const HomeMenu = ({ closeAction }: Props) => {
                 <NavItem href="/cachorros" icon={faDog} label="Cachorros" />
                 <NavItem href="/sobre" icon={faBook} label="Sobre" />
                 <NavItem href="/duvidas" icon={faCircleQuestion} label="Dúvidas" />
-                <NavItem href="/login" icon={faCircleUser} label="Meu perfil" />
+                <NavItem href={ongConectado ? "/ong/home" : "/login"} icon={ongConectado ? faCircleUser : faRightToBracket}  label={ongConectado ? "Meu perfil" : "Entrar"} />
             </div>
 
         </div>

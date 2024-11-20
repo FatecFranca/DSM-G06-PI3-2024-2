@@ -6,7 +6,7 @@ import { CheckBox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { InputGrande } from "@/components/ui/inputGrande";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { api } from "@/conection/api";
@@ -24,11 +24,21 @@ export const CadastroAnimal = () => {
     const [dataNascimento, setDataNascimento] = useState<string>();
     const [vacinas, setVacinas] = useState<string>();
     const [imagens, setImagens] = useState<File[]>([]);
-
+    const [ong, setOng] = useState<string>();
     const [raca, setRaca] = useState<string>();
     const [descricao, setDescricao] = useState<string>();
     const [comportamento, setComportamento] = useState<string>();
 
+    useEffect(() => {
+        const storedOngId = sessionStorage.getItem("ongId");
+        if (storedOngId) {
+            setOng(storedOngId); 
+        } else {
+          alert("É necessário estar logado para acessar esta página.");
+          router.push("/login");
+        }
+      }, [router]);
+    
 
     const HandleCadastrarAnimal = async () => {
         let idAnimalCriado;
@@ -44,25 +54,21 @@ export const CadastroAnimal = () => {
                 adotado: false,
                 comportamento: comportamento,
                 descricao: descricao,
-                ong_id: "670815ea4a2d0bdb6d562eda"
+                ong_id: ong
             };
 
             try {
                 const response = await api.post('/animais/', cadastro);
                 idAnimalCriado = response.data.id;
-                console.log("Animal cadastrado com sucesso:", idAnimalCriado); // Verifique o ID aqui
+                console.log("Animal cadastrado com sucesso:", idAnimalCriado);
 
-                // Após o cadastro, envia as imagens
+
                 if (idAnimalCriado && imagens.length > 0) {
                     await HandleCadastrarImagens(idAnimalCriado);
                 }
 
-                // Verifique se o redirecionamento está funcionando
-                console.log("ID do animal para redirecionamento:", idAnimalCriado);
-                console.log("Tentando redirecionar para a URL:", `/animal/${idAnimalCriado}`);
-
-                console.log("Tentando redirecionar para /animal/[id] com ID:", idAnimalCriado);
-                router.push(`/animal/${idAnimalCriado}`)
+                router.push(`/animal/${idAnimalCriado}`);
+                
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.error("Erro ao cadastrar animal:", error.response?.data || error.message);
@@ -82,12 +88,11 @@ export const CadastroAnimal = () => {
         try {
             for (let i = 0; i < imagens.length; i++) {
                 const formData = new FormData();
-                formData.append("file", imagens[i]); // A chave "imagem" pode ser adaptada para o nome esperado no backend
+                formData.append("file", imagens[i]);
 
-                // Enviar imagem individualmente associada ao ID do animal
                 const response = await api.post(`/imagensanimal/${idAnimalCriado}`, formData, {
                     headers: {
-                        "Content-Type": "multipart/form-data", // Indica que estamos enviando um arquivo
+                        "Content-Type": "multipart/form-data",
                     },
                 });
                 console.log(`Imagem ${i + 1} cadastrada com sucesso:`, response.data);

@@ -4,19 +4,20 @@ type Props = {
     label: string;
     onClick?: () => void;
     size: 0 | 1 | 2 | 3;
+    red?: boolean
 }
 
-export const Button = ({ label, onClick, size }: Props) => {
+export const Button = ({ label, onClick, size, red }: Props) => {
     return (
         <div
             onClick={onClick}
             className={`
-                active:bg-deep-blue-1000
+                ${red ? "active:bg-red-900" : "active:bg-deep-blue-1000"}
                 inline-flex
                 justify-center
                 items-center
-                cursor-pointer 
-                bg-deep-blue 
+                cursor-pointer
+                ${red ? "bg-red-700" : "bg-deep-blue"}
                 text-white 
                 font-semibold 
                 rounded-full

@@ -8,16 +8,30 @@ import { Button } from "../ui/button";
 import { ImageUpload } from "@/components/ui/image-upload";
 import { api } from "@/conection/api";
 import { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
+import { formatarNumero } from "@/utils/formatarTelefone";
 
-export const CadastroONG = () => { 
+export const CadastroONG = () => {
     const [email, setEmail] = useState<string>();
     const [senha, setSenha] = useState<string>();
 
+    const router = useRouter();
+
     useEffect(() => {
-         setEmail(sessionStorage.getItem("email") || "");
-         setSenha(sessionStorage.getItem("senha") || "");
-      }, []);
-    
+        // Verifica se o ID da ONG já está armazenado no navegador
+        const storedOngId = sessionStorage.getItem("ongId");
+
+        if (storedOngId) {
+            router.push("/ong/home"); // Redireciona para a página inicial da ONG
+            alert("Olá, você já está conectado no sistema!")
+        }
+    }, [router]);
+
+    useEffect(() => {
+        setEmail(sessionStorage.getItem("email") || "");
+        setSenha(sessionStorage.getItem("senha") || "");
+    }, []);
+
     const [nome, setNome] = useState<string>();
     const [razaoSocial, setRazaoSocial] = useState<string>();
     const [cep, setCep] = useState<string>();
@@ -38,13 +52,17 @@ export const CadastroONG = () => {
     const [adocoes, setAdocoes] = useState<string>();
     const [imagens, setImagens] = useState<File[]>([]);
 
-    
+
     const HandleCadastrarOng = async () => {
         let idOngCadastrada;
         console.log(nome)
 
         if (nome && razaoSocial && bairro && cep && estado && cidade && logradouro && descricao &&
-                        procedimento && documentos && adocoes && whatsApp && cnpj && pix && horario) {
+            procedimento && documentos && adocoes && whatsApp && cnpj && pix && horario) {
+            
+            setWhatsApp(formatarNumero(whatsApp))
+
+            if (telefone) { setTelefone(formatarNumero(telefone)) }
 
             const cadastro = {
                 nome_fantasia: nome,
@@ -70,15 +88,21 @@ export const CadastroONG = () => {
             };
 
             try {
-                const response = await api.post('/ongs/', cadastro);
-                idOngCadastrada = response.data.id;
-                console.log("ONG cadastrado com sucesso:", idOngCadastrada); // Verifique o ID aqui
 
-                // Após o cadastro, envia as imagens
+                const response = await api.post('/ongs/', cadastro);
+
+                idOngCadastrada = response.data.id;
+
+                sessionStorage.setItem("ongId", response.data.id);
+                sessionStorage.setItem("nomeOng", response.data.nome_fantasia);
+
                 if (idOngCadastrada && imagens.length > 0) {
                     await HandleCadastrarImagens(idOngCadastrada);
                 }
+
                 alert("Cadastro realizado com sucesso!")
+                router.push('/ong/home')
+
             } catch (error) {
                 if (error instanceof AxiosError) {
                     console.error("Erro ao cadastrar a ONG:", error.response?.data || error.message);

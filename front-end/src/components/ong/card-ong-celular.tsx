@@ -16,16 +16,13 @@ export const CardOngCelular = ({ ong }: Props) => {
     const [imagens, setImagens] = useState<Imagem[]>([]);
 
     useEffect(() => {
-        console.log(ong.id)
-        const url = `/imagensong/ong/${ong.id}`
-        console.log(url)
-        // Verifica se o ID está definido antes de fazer a chamada à API
+
         api.get(`/imagensong/ong/${ong.id}`).then((response) => {
-            console.log("IMAGEM: ", response.data);
-            setImagens(response.data); // Atualiza o estado do animal com os dados da resposta
+
+            setImagens(response.data);
         });
 
-    }, []); // Dependência no ID, para que a chamada ocorra quando ele for definido
+    }, []); 
 
     return (
         <div className="flex flex-col gap-4 text-deep-blue">

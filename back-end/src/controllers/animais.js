@@ -75,6 +75,24 @@ controller.retrieveOne = async function (req, res) {
     }
 }
 
+controller.retrieveAllByOng = async function (req, res) {
+
+    const include = includeRelations(req.query)
+    try {
+        const result = await prisma.animal.findMany({
+            where: {
+                ong_id: req.params.id
+            },
+            include
+        })
+        if (result) res.send(result)
+        else res.status(404).end()
+    } catch (error) {
+        console.error(error)
+        res.status(500).send(error)
+    }
+}
+
 controller.update = async function (req, res) {
     try {
         const result = await prisma.animal.update({

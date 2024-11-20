@@ -5,7 +5,7 @@ type Props = {
 export const PageName = ({label} : Props) => {
     return (
         <div className="bg-deep-blue w-full rounded-b-3xl p-6 flex itesm-center justify-center">
-            <h2 className="text-2xl text-sand-100 font-semibold">{label}</h2>
+            <h2 className="text-2xl text-sand-100 font-semibold text-center">{label}</h2>
         </div>
     )
 }

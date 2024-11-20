@@ -6,13 +6,24 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { NavItem } from "../nav/nav-item"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { HomeMenu } from "./home-menu"
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons"
 
 export const Header = () => {
 
     const [showMenu, setShowMenu] = useState(false)
+    const [ongConectado, setOngConectada] = useState(false);
+
+    useEffect(() => {
+        // Verifica se o ID da ONG já está armazenado no navegador
+        const storedOngId = sessionStorage.getItem("ongId");
+
+        if(storedOngId) {
+            setOngConectada(true);
+        }
+    });
+
 
     return (
         <header className="bg-deep-blue w-full flex justify-center items-center gap-4 text-white text-lg font-medium px-6 py-4 ">
@@ -31,7 +42,7 @@ export const Header = () => {
                     <NavItem href="/sobre" label="Sobre"/>
 
                 </div>
-                <Link className='hidden lg:flex' href={'/cadastro'}>
+                <Link className='hidden lg:flex' href={ongConectado ? '/ong/home' : '/login'}>
                     <FontAwesomeIcon className="size-8" icon={faCircleUser} />
                 </Link>
 

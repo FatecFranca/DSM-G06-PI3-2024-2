@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export const CadastroForm = () => {
 
@@ -15,10 +15,17 @@ export const CadastroForm = () => {
 
     const router = useRouter();
 
+    useEffect(() => {
+        // Verifica se o ID da ONG já está armazenado no navegador
+        const storedOngId = sessionStorage.getItem("ongId");
+
+        if (storedOngId) {
+            router.push("/ong/home"); // Redireciona para a página inicial da ONG
+            alert("Olá, você já está conectado no sistema!")
+        }
+    }, [router]);
+
     const handleCadastro = () => {
-
-
-
         if (email == confirmacao) {
             if (senha) {
                 sessionStorage.setItem("email", email);

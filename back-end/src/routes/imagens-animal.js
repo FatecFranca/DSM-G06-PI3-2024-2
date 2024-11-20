@@ -11,6 +11,6 @@ router.put('/:id', controller.update)
 router.delete('/:id', controller.delete)
 
 /**UPLOAD DAS IMAGENS */
-router.post('/:idanimal', controller.upload)
+router.post('/:idAnimal', controller.upload)
 
 export default router
