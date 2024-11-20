@@ -40,7 +40,7 @@ controller.upload = async function (req, res) {
             try {
                 await prisma.imagemOng.create({
                     data: {
-                        ong_id: req.params.idong,
+                        ong_id: req.params.idOng,
                         src: filePath
                     }
                 });

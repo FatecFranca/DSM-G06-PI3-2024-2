@@ -17,7 +17,7 @@ export const CardAnimal = ({ animal }: Props) => {
     const defaultImage = "https://i.pinimg.com/originals/da/07/a8/da07a810a210e37988780cbfb691ab9c.jpg"; 
 
     return (
-        <div className="active:brightness-90 shadow-md flex flex-col items-center justify-center w-[270px] h-[350px] bg-sand-300 rounded-2xl text-deep-blue-1000 font-semibold overflow-hidden">
+        <div className="active:brightness-90 shadow-md flex flex-col items-center justify-center w-[270px] h-[440px] bg-sand-300 rounded-2xl text-deep-blue-1000 font-semibold overflow-hidden">
             <Link href={`/animal/${animal.id}`} className="w-full h-full">
           
                 <img

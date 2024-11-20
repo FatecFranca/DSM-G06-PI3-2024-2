@@ -19,6 +19,8 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+
+
 app.use(cors())
 
 /***************** ROTAS *************************** */

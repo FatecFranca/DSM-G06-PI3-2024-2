@@ -31,7 +31,7 @@ export const FotoAnimal = ({ animal }: Props) => {
 
             <div className="aspect-square flex justify-center items-center w-full h-full rounded-2xl lg:rounded-3xl shadow-xl">
                 <img
-                    className="w-full h-full object-cover rounded-2xl lg:rounded-3xl"
+                    className="w-full h-full object-cover rounded-2xl lg:rounded-3xl aspect-square"
                     src={imagemPrincipal ? imagemPrincipal.src : "/"}
                     alt={animal.nome}
                 />
