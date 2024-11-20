@@ -11,6 +11,7 @@ estado de saúde. Essa solução visa reduzir as barreiras para adoção, oferec
 
 ## 🌐 Visite o site 
 A base funcional do projeto está pronta e já pode ser acessada online!
+> [PawsSafety || Conheça nosso site! ](https://paws-safety.vercel.app/)
 Explore nossa plataforma e descubra o seu pet para a adoção.
 
 ### **O que você encontra no site?**
@@ -21,7 +22,7 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 - **Oferecer às ONGs uma ferramenta prática para cadastrar animais disponíveis para adoção.**  
 - **Uma experiência otimizada tanto para desktop quanto para dispositivos móveis.**
 <br />  
-👉 Acesse agora mesmo clicando no link abaixo:
+
 
 
 ## 📂 Prototipagem
