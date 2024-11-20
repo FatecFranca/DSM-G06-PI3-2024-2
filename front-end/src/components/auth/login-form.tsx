@@ -58,13 +58,11 @@ export const LoginForm = () => {
                 alert("Senha errada, por favor tente novamente.");
             }
         } catch (error) {
-            if (error instanceof Error && (error as any)?.response?.status === 404) {
-                alert("Usuário Não Encontrado");
-            } else {
-                alert("Ocorreu um erro ao fazer login. Tente novamente mais tarde.");
-            }
+            alert("Ocorreu um erro ao fazer login. Tente novamente mais tarde.");
         }
     };
+
+
 
     return (
         <div className="w-full flex flex-col items-center justify-center gap-5">
