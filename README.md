@@ -26,7 +26,7 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 - **Processo de adoção mais rápido e eficiente, conectando adotantes aos animais que mais precisam de um lar.**
 - **Visualização de todas as informações remotamente. Podendo entrar em contato também com as ONGs sem a necessidade de visitar cada ONG individualmente.**
 - **Oferecer às ONGs uma ferramenta prática para cadastrar animais disponíveis para adoção.**  
-- **Uma experiência otimizada tanto para **desktop** quanto para **dispositivos móveis**.**
+- **Uma experiência otimizada tanto para desktop quanto para dispositivos móveis.**
 <br />  
 
 
