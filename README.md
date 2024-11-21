@@ -9,9 +9,9 @@
 
 
 ## 📜 Sobre o projeto 
-* Nosso objetivo é desenvolver uma solução digital que integre diversas ONGs de proteção animal em uma plataforma unificada, onde será possível centralizar as informações 
-sobre os animais disponíveis para adoção. A plataforma permitirá aos adotantes filtrar e buscar animais de acordo com suas necessidades e preferências, como porte, comportamento, idade e 
-estado de saúde. Essa solução visa reduzir as barreiras para adoção, oferecendo acesso remoto às informações e simplificando o processo. 
+* Nosso objetivo foi desenvolver uma solução digital que integre diversas ONGs de proteção animal em uma plataforma unificada, onde é possível centralizar as informações 
+sobre os animais disponíveis para adoção. A plataforma permite aos adotantes buscar animais de acordo com suas necessidades e preferências, como porte, comportamento, idade e saúde. 
+Essa solução visa reduzir as barreiras para adoção, oferecendo acesso remoto às informações e simplificando o processo. 
 
 
 ## 🌐 Visite o site 
@@ -26,9 +26,8 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 - **Processo de adoção mais rápido e eficiente, conectando adotantes aos animais que mais precisam de um lar.**
 - **Visualização de todas as informações remotamente. Podendo entrar em contato também com as ONGs sem a necessidade de visitar cada ONG individualmente.**
 - **Oferecer às ONGs uma ferramenta prática para cadastrar animais disponíveis para adoção.**  
-- **Uma experiência otimizada tanto para desktop quanto para dispositivos móveis.**
+- **Uma experiência otimizada tanto para **desktop** quanto para **dispositivos móveis**.**
 <br />  
-
 
 
 ## 📂 Prototipagem
