@@ -16,7 +16,7 @@ Essa solução visa reduzir as barreiras para adoção, oferecendo acesso remoto
 
 ## 🌐 Visite o site 
 A base funcional do projeto está pronta e já pode ser acessada online!
-> [PawsSafety || Conheça nosso site! ](https://paws-safety.vercel.app/)
+> [PawsSafety🐾 || Conheça nosso site! ](https://paws-safety.vercel.app/)
 
 Explore nossa plataforma e descubra o seu pet para a adoção.
 
