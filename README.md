@@ -30,6 +30,9 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 Confira o nosso FIGMA, onde aqui idealizamos o formato do nosso site, identidade, cores e design geral<br />
 > [PawsSafety || Conheça nosso FIGMA! ](https://www.figma.com/design/28pL6IgATrihzzu8VJAL9q)
 
+## 🗓️ Gestão Ágil do Projeto
+Confira o nosso FIGMA, onde aqui idealizamos o formato do nosso site, identidade, cores e design geral<br />
+
 
 ## 🛠️ Ferramentas Utilizadas  
 
@@ -37,7 +40,7 @@ Confira o nosso FIGMA, onde aqui idealizamos o formato do nosso site, identidade
 - ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=black) - Biblioteca para construção de interfaces.  
 - ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black) - Linguagem de programação usada no frontend.  
 - ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) - Superset de JavaScript com tipagem estática.  
-- ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white) - Estilização das páginas web.  
+- ![Tailwind](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white) - Estilização das páginas web.  
 - ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?logo=prisma&logoColor=white) - ORM para interação com o banco de dados.  
 - ![Thunder Client](https://img.shields.io/badge/-Thunder%20Client-000000?logo=thunder-client&logoColor=white) - Testes de APIs diretamente no editor.  
 - ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white) - Banco de dados NoSQL usado no backend.  
