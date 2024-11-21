@@ -30,7 +30,7 @@ Explore nossa plataforma e descubra o seu pet para a adoção.
 Confira o nosso FIGMA, onde aqui idealizamos o formato do nosso site, identidade, cores e design geral<br />
 > [PawsSafety || Conheça nosso FIGMA! ](https://www.figma.com/design/28pL6IgATrihzzu8VJAL9q)
 
-## 🗓️ Gestão Ágil do Projeto
+## 🎯 Gestão Ágil do Projeto
 Confira o nosso cronograma de tarefas semanais feitos no [![Notion](https://img.shields.io/badge/Notion-000?logo=notion&logoColor=fff)](#), onde aqui definimos o que cada integrante da equipe fez durante cada semana<br />
 > [PawsSafety || Conheça nosso cronograma! ](https://gabrielrspirlan.notion.site/PawsSafety-Tarefas-14454d378e1f8043bbb3fa91c2f6d7c4)
 
